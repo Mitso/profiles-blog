@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Layout, { siteTitle } from '../components/layout'
 import utilStyles from '../styles/utils.module.scss'
 
-function Home({data}) {
+function Home({ posts }) {
   return (
     <Layout home>
       <Head>
@@ -19,12 +19,10 @@ function Home({data}) {
         <Link href='/posts/post'>
           <a className={utilStyles.backToHome}>Go to local post</a>
         </Link>
-        <ul>
-        {
-          data.map((item) => (
-            <li>{item.gender}</li>
-          ))
-        }
+        <ul className={utilStyles.list}>
+          {posts.results.map((item,i) => (
+            <li key={i}>{item.name.first}</li>
+          ))}
         </ul>
       </section>
     </Layout>
@@ -32,12 +30,12 @@ function Home({data}) {
 }
 
 export async function getStaticProps() {
-  const res = await fetch('https://randomuser.me/api/?results=5')
-  const data = await res.json()
+  const res = await fetch('https://randomuser.me/api/?results=50')
+  const posts = await res.json()
 
   return {
     props: {
-      data,
+      posts,
     },
     revalidate: 1,
   }
