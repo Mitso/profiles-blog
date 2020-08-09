@@ -1,18 +1,38 @@
 {
-  "name": "learn-starter",
-  "version": "0.1.0",
+  "name": "profiles-blog",
+  "version": "1.0.0",
   "private": true,
+  "description": "Pull profiles from external API ",
+  "main": "index.js",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mitso/profiles-blog.git"
+  },
+  "keywords": [
+    "Next.js",
+    "App",
+    "App",
+    "Profiles",
+    "Blog"
+  ],
+  "author": "Mitso Qalaba",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mitso/profiles-blog/issues"
+  },
+  "homepage": "https://github.com/Mitso/profiles-blog#readme",
   "dependencies": {
     "classnames": "^2.2.6",
     "isomorphic-unfetch": "^3.0.0",
     "next": "^9.5.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "sass": "^1.26.10"
+    "sass": "^1.26.10",
+    "swr": "^0.3.0"
   }
 }

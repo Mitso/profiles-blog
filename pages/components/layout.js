@@ -1,9 +1,9 @@
 import Head from 'next/head'
 import Link  from 'next/link'
 import styles from './layout.module.scss'
-import utilStyles from '../styles/utils.module.scss'
+import utilStyles from '../../public/style/utils.module.scss'
 
-const name = "Mitso Q."
+const name = "Random Users"
 export const siteTitle = 'Next.js Sample Site'
 
 export default function Layout({children, home}) {
@@ -30,7 +30,7 @@ export default function Layout({children, home}) {
           <>
             <img
               src="/img/clipart.png"
-              className={`${styles.headerHomeImage} ${utilStyles.borderCircle}`}
+              className={`${styles.headerHomeImage} ${utilStyles.borderGeneral}`}
               alt={name}
             />
             <h1 className={utilStyles.heading2Xl}>{name}</h1>
@@ -41,7 +41,7 @@ export default function Layout({children, home}) {
               <a>
                 <img
                   src="/img/clipart.png"
-                  className={`${styles.headerImage} ${utilStyles.borderCircle}`}
+                  className={`${styles.headerImage} ${utilStyles.borderGeneral}`}
                   alt={name}
                 />
               </a>
@@ -54,6 +54,7 @@ export default function Layout({children, home}) {
           </>
         )}
       </header>
+
       <main>{children}</main>
 
       {!home && (

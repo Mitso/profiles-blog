@@ -1,9 +1,9 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import Layout from '../../components/layout'
-import utilStyles from '../../styles/utils.module.scss'
+import Layout from '../components/layout'
+import utilStyles from '../../public/style/utils.module.scss'
 
-export default function FirstPost() {
+function User() {
   return (
     <Layout>
       <Head>
@@ -21,7 +21,24 @@ export default function FirstPost() {
         the site to meet, and enforce them using some automated tool.
       </p>
       </section>
-
     </Layout>
   )
 }
+
+/*
+export async function getStaticPaths() {
+  //Must not do another fetch though
+  const res = await fetch('https://randomuser.me/api/?results=50')
+  const userData = await res.json()
+  return userData.map(user => {
+      return {
+        params: {
+          id: user.id.value
+        },
+        fallback: false
+      }
+  })
+}*/
+
+
+export default User

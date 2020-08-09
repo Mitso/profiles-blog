@@ -1,0 +1,56 @@
+{
+  "gender":"female",
+  "name": {
+    "title":"Miss",
+    "first":"Kylie",
+    "last":"Hanson"
+  },
+  "location": {
+    "street": {
+      "number":377,
+      "name":"Elgin St"
+    },
+    "city":"Geelong",
+    "state":"New South Wales",
+    "country":"Australia",
+    "postcode":3308,
+    "coordinates": {
+      "latitude":"-86.5987",
+      "longitude":"117.1015"
+    },
+    "timezone": {
+      "offset":"+8:00",
+      "description":"Beijing, Perth, Singapore, Hong Kong"
+    }
+  },
+  "email":"kylie.hanson@example.com",
+  "login": {
+    "uuid":"854d0452-6050-4068-8dc1-8fc4f82fa69d",
+    "username":"biglion946",
+    "password":"sidney",
+    "salt":"cucaxFF1",
+    "md5":"e9d07832c83b80d07b41bbcee0b1bd41",
+    "sha1":"b713bcd6a35f69b4ce5b8ed1e0d01947ce31e4bc",
+    "sha256":"b49c8e752d3646db1a72b64f7da0a85a245cafeedceb2c6eaa4fb88fe2228812"
+  },
+  "dob": {
+    "date":"1986-08-04T08:13:47.171Z",
+    "age":34
+  },
+  "registered": {
+    "date":"2006-11-30T15:52:01.593Z",
+    "age":14
+  },
+  "phone":"05-1963-5847",
+  "cell":"0488-172-781",
+  "id": {
+    "name":"TFN",
+    "value":"909216030"
+  },
+  "picture": {
+    "large":"https://randomuser.me/api/portraits/women/96.jpg",
+    "medium":"https://randomuser.me/api/portraits/med/women/96.jpg",
+    "thumbnail":"https://randomuser.me/api/portraits/thumb/women/96.jpg"
+  },
+  "nat":"AU"
+}

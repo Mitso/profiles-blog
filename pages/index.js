@@ -1,29 +1,41 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import Layout, { siteTitle } from '../components/layout'
-import utilStyles from '../styles/utils.module.scss'
+import Layout, { siteTitle } from './components/layout'
+import useSWR from 'swr'
+import utilStyles from '../public/style/utils.module.scss'
 
-function Home({ posts }) {
+function Home({ resultsData }) {
   return (
     <Layout home>
       <Head>
         <title>{siteTitle}</title>
       </Head>
       <section className={utilStyles.headingMd}>
-        <p>
-          I asked on Twitter the other day how many
-          people had created and enforced a performance budget
-          for a website they were working on. Not surprisingly,
-          the vast majority of people hadn't.
-        </p>
-        <Link href='/posts/post'>
-          <a className={utilStyles.backToHome}>Go to local post</a>
-        </Link>
+        <h2>Welcome to the profiles application</h2>
+        <h3>Please file a list of random 50 users - emphasis on random</h3>
+        <p>Aslo note this is not chached.</p>
+
         <ul className={utilStyles.list}>
-          {posts.results.map((item,i) => (
-            <li key={i}>{item.name.first}</li>
-          ))}
-        </ul>
+        {resultsData.results.map((user,i) => (
+
+          <li key={i} className={utilStyles.listItem}>
+            <div className={utilStyles.listImgWrapper}>
+              <img src={user.picture.medium} className={`${utilStyles.borderCircle} ${utilStyles.listImg}`}/>
+            </div>
+            <h4 className={utilStyles.listName}>{user.name.first} {user.name.last}</h4>
+            <div className={utilStyles.details}>
+              <h5>Location</h5>
+              <p>City: {user.location.city}</p>
+              <p>State: {user.location.state}</p>
+              <p>Country: {user.location.country}</p>
+            </div>
+            <Link href="/profiles/profile">
+              <h4><a className={utilStyles.backToHome}>Profile</a></h4>
+            </Link>
+          </li>
+        ))}
+
+      </ul>
       </section>
     </Layout>
   )
@@ -31,13 +43,11 @@ function Home({ posts }) {
 
 export async function getStaticProps() {
   const res = await fetch('https://randomuser.me/api/?results=50')
-  const posts = await res.json()
-
+  const resultsData = await res.json()
   return {
     props: {
-      posts,
-    },
-    revalidate: 1,
+      resultsData,
+    }
   }
 }
 
