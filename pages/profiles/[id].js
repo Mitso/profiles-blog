@@ -67,7 +67,6 @@ export async function getStaticProps({ params }) {
   let profileFilter = profileData.results.filter((obj) => {
     return obj.login.uuid === params.id
   })
-  console.log(profileFilter,'EOF');
   return {
     props: {
       profileFilter
