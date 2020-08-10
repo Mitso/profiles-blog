@@ -43,7 +43,6 @@ function Home({ resultsData }) {
 export async function getStaticProps() {
   const res =  await fetch('https://randomuser.me/api/?results=50&seed=somethingfun')
   const resultsData = await res.json()
-  console.log(fetchRandomUsers());
   return {
     props: {
       resultsData,
