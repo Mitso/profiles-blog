@@ -3,7 +3,7 @@ import Link  from 'next/link'
 import styles from './layout.module.scss'
 import utilStyles from '../../public/style/utils.module.scss'
 
-const name = "Random Users"
+const name = "Profiles"
 export const siteTitle = 'Next.js Sample Site'
 
 export default function Layout({children, home}) {
@@ -32,7 +32,7 @@ export default function Layout({children, home}) {
         </header>
       )}
 
-      <main>
+      <main role="main">
         {children}
         {!home && (
           <div className={styles.backToHome}>

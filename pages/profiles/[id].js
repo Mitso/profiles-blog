@@ -4,7 +4,7 @@ import Layout from '../components/layout'
 import utilStyles from '../../public/style/utils.module.scss'
 import { useRouter } from 'next/router'
 
-const name = "Random Users: Profile"
+const name = "Profiles: User"
 function User({profileFilter}) {
   const router = useRouter()
   const { id } = router.query
@@ -39,7 +39,10 @@ function User({profileFilter}) {
   )
 }
 
-
+/*
+  // NOTE:
+ Fetch external data to display to Home component
+*/
 export async function getStaticPaths() {
   const res = await fetch('https://randomuser.me/api/?results=50&seed=somethingfun')
   const userData = await res.json()

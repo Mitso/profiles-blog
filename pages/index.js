@@ -38,7 +38,10 @@ function Home({ resultsData }) {
     </Layout>
   )
 }
-
+/*
+  // NOTE:
+ Fetch external data to display to Home component
+*/
 export async function getStaticProps() {
   const res =  await fetch('https://randomuser.me/api/?results=50&seed=somethingfun')
   const resultsData = await res.json()
