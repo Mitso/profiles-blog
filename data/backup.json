@@ -1,0 +1,55 @@
+{
+  "gender":"female",
+  "name": {
+    "title":"Ms",
+    "first":"Giesela",
+    "last":"Wurst"
+  },
+  "location": {
+    "street": {
+      "number":2140,
+      "name":"Burgstraße"
+    },
+  "city":"Meppen",
+  "state":"Hessen",
+  "country":"Germany",
+  "postcode":39699,
+  "coordinates": {
+    "latitude":"-47.6459",
+    "longitude":"94.4943"
+  },
+  "timezone": {
+    "offset":"-7:00",
+    "description":"Mountain Time (US & Canada)"}
+  },
+  "email":"giesela.wurst@example.com",
+  "login": {
+    "uuid":"5fc23386-53ec-4ea7-aa16-a232048c7c7f",
+    "username":"happymouse248",
+    "password":"acid",
+    "salt":"l4W6PCyQ",
+    "md5":"347e168b66096c657009fb3e87279475",
+    "sha1":"978bb20f418527a4ba0898d9f8909ca875e655cd",
+    "sha256":"9b7c4819e4c16083e9fc600c730a62f206724a54fea3aeeaa7f625fea084fddf"
+  },
+  "dob": {
+    "date":"1956-07-27T08:43:20.423Z",
+    "age":64
+  },
+  "registered": {
+    "date":"2005-04-20T15:46:21.926Z",
+    "age":15
+  },
+  "phone":"0257-4749482",
+  "cell":"0175-7146426",
+  "id": {
+    "name":"",
+    "value":null
+  },
+  "picture": {
+    "large":"https://randomuser.me/api/portraits/women/0.jpg",
+    "medium":"https://randomuser.me/api/portraits/med/women/0.jpg",
+    "thumbnail":"https://randomuser.me/api/portraits/thumb/women/0.jpg"
+  },
+  "nat":"DE"
+}
