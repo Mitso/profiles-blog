@@ -68,11 +68,6 @@
     border-radius: 5px;
     box-shadow: 0px 1px 5px 0px var(--grayish-orange);
     width: 350px;
-    &:nth-child(odd) {
-      .primaryButton {
-        background: #67D995;
-      }
-    }
   }
   &ImgWrapper {
     text-align: center;

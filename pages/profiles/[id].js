@@ -5,18 +5,17 @@ import utilStyles from '../../public/style/utils.module.scss'
 import { useRouter } from 'next/router'
 
 const name = "Random Users: Profile"
-function User(profileData) {
+function User({profileFilter}) {
   const router = useRouter()
   const { id } = router.query
 
-  console.log();
   return (
     <Layout>
       <Head>
         <title>{name}</title>
       </Head>
       <section className={utilStyles.profiles}>
-        {profileData.profileData.results.map((user,i) => (
+        {profileFilter.map((user,i) => (
           <div className={utilStyles.profilesUser} key={i}>
             <div className={utilStyles.profilesImgWrapper}>
               <img src={user.picture.large} className={utilStyles.borderCircle}/>
@@ -24,6 +23,7 @@ function User(profileData) {
             <h4 className={`${utilStyles.heading2Xl} ${utilStyles.profilesName}`}>{user.name.first} {user.name.last}</h4>
           </div>
         ))}
+
       </section>
     </Layout>
   )
@@ -45,12 +45,16 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  console.log('Passed Params',params,'EOF')
-  const res = await fetch(`https://randomuser.me/api/?uuid=${params.id}&seed=somethingfun`)
+
+  const res = await fetch("https://randomuser.me/api/?results=50&seed=somethingfun")
   const profileData = await res.json()
+  let profileFilter = profileData.results.filter((obj) => {
+    return obj.login.uuid === params.id
+  })
+  console.log(profileFilter,'EOF');
   return {
     props: {
-      profileData
+      profileFilter
     }
   }
 }
