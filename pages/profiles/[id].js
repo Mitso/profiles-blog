@@ -41,7 +41,7 @@ function User({profileFilter}) {
 
 /*
   // NOTE:
- Fetch external data to display to Home component
+ Fetch external data to display a user with unique uuid
 */
 export async function getStaticPaths() {
   const res = await fetch('https://randomuser.me/api/?results=50&seed=somethingfun')
@@ -57,6 +57,10 @@ export async function getStaticPaths() {
   }
 }
 
+/*
+  // NOTE:
+ Use the getStaticPaths id to fetch external data to get the to user and display to User component
+*/
 export async function getStaticProps({ params }) {
   const res = await fetch("https://randomuser.me/api/?results=50&seed=somethingfun")
   const profileData = await res.json()

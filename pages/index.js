@@ -3,10 +3,8 @@ import Link from 'next/link'
 import Layout, { siteTitle } from './components/layout'
 import useSWR from 'swr'
 import utilStyles from '../public/style/utils.module.scss'
-import { fetchRandomUsers } from '../data/api'
 
 function Home({ resultsData }) {
-  console.log(fetchRandomUsers())
   return (
     <Layout home>
       <Head>
