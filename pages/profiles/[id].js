@@ -26,14 +26,13 @@ function User(profileData) {
 
 
 export async function getStaticPaths() {
-  const res = await fetch('https://randomuser.me/api/?results=50')
+  const res = await fetch('https://randomuser.me/api/?results=50&seed=somethingfun')
   const userData = await res.json()
   const paths = userData.results.map(function(user,i) {
     return {
-      params: { id: i.toString() },
+      params: { id: user.login.uuid },
     }
   })
-
   return {
     paths,
     fallback: false
@@ -42,7 +41,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   console.log('Passed Params',params,'EOF')
-  const res = await fetch(`https://randomuser.me/api/?results=50?${params.id}`)
+  const res = await fetch(`https://randomuser.me/api/?uuid=${params.id}&seed=somethingfun`)
   const profileData = await res.json()
   return {
     props: {

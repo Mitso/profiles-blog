@@ -10,9 +10,11 @@ function Home({ resultsData }) {
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <section className={utilStyles.headingMd}>
-        <h2>Welcome to the profiles application</h2>
-        <h3>Please file a list of random 50 users - emphasis on random</h3>
+      <section className={utilStyles.content}>
+        <div className={utilStyles.contentTopics}>
+          <h2 className={utilStyles.headingMd}>Welcome to the profiles application</h2>
+          <h3>Please file a list of random 50 users - emphasis on random</h3>
+        </div>
         <ul className={utilStyles.list}>
           {resultsData.results.map((user,i) => (
             <li key={i} className={utilStyles.listItem}>
@@ -20,16 +22,12 @@ function Home({ resultsData }) {
                 <img src={user.picture.medium} className={`${utilStyles.borderCircle} ${utilStyles.listImg}`}/>
               </div>
               <h4 className={utilStyles.listName}>{user.name.first} {user.name.last}</h4>
-              <div className={utilStyles.details}>
-                <h5>Location</h5>
-                <p>City: {user.location.city}</p>
-                <p>State: {user.location.state}</p>
-                <p>Country: {user.location.country}</p>
+              <div className={utilStyles.listDetails}>
+                <p className={utilStyles.listLabel}><span>City:</span> {user.location.city}, {user.location.state}</p>
+                <p className={utilStyles.listLabel}><span>Country:</span> {user.location.country}</p>
               </div>
-              <br/>
-                <p>{user.id.value}</p>
-              <br/>
-              <Link href="/profiles/[id]" as={`/profiles/${i}`}>
+
+              <Link href="/profiles/[id]" as={`/profiles/${user.login.uuid}`}>
                 <a className={utilStyles.backToHome}>Profile</a>
               </Link>
             </li>
@@ -41,7 +39,7 @@ function Home({ resultsData }) {
 }
 
 export async function getStaticProps() {
-  const res = await fetch('https://randomuser.me/api/?results=50')
+  const res = await fetch('https://randomuser.me/api/?results=50&seed=somethingfun')
   const resultsData = await res.json()
   return {
     props: {

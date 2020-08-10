@@ -1,3 +1,9 @@
+
+{profileData.profileData.results.map((user,i) => (
+  <h4 key={i} className={utilStyles.listName}>{user.name.first} {user.name.last}</h4>
+))}
+
+
 {
   "gender":"female",
   "name": {
@@ -55,9 +61,19 @@
   "nat":"AU"
 }
 
+
+
+
+
+
+
+
 // const paths = userData.results.map((user) => ({
 //   params: {
 //     id: user.id.value
 //   },
 // }))
 //paths[0].params.id,'vs',paths[0].params.id.toString()
+
+
+{"gender":"male","name":{"title":"Mr","first":"Ivo","last":"Lyshaug"},"location":{"street":{"number":6921,"name":"Krossveien"},"city":"Torget","state":"Hordaland","country":"Norway","postcode":"6601","coordinates":{"latitude":"57.8516","longitude":"-172.0152"},"timezone":{"offset":"-2:00","description":"Mid-Atlantic"}},"email":"ivo.lyshaug@example.com","login":{"uuid":"685b7d55-96cf-4d58-9b7c-dcaf5aaf00fe","username":"heavypeacock872","password":"pickle","salt":"JxW7YwFL","md5":"84fdd934b97186f613c3046cd06564e5","sha1":"8397caeb31ce33e5223535ca392d761918f0160d","sha256":"5e45f1e41a8e703c33944327491b18b810bad97bcd111570fcc9bf35d96b523b"},"dob":{"date":"1987-02-01T18:10:25.460Z","age":33},"registered":{"date":"2013-10-03T01:18:35.301Z","age":7},"phone":"36690098","cell":"99853653","id":{"name":"FN","value":"01028707998"},"picture":{"large":"https://randomuser.me/api/portraits/men/98.jpg","medium":"https://randomuser.me/api/portraits/med/men/98.jpg","thumbnail":"https://randomuser.me/api/portraits/thumb/men/98.jpg"},"nat":"NO"}
