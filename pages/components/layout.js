@@ -10,6 +10,7 @@ export default function Layout({children, home}) {
   return  (
     <div className={styles.container}>
       <Head>
+        <title>{name}</title>
         <link rel="icon" href="/img/favicon.ico" />
         <meta
           name="description"
@@ -25,27 +26,22 @@ export default function Layout({children, home}) {
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
 
-      <header className={styles.header}>
-      {home ? (
+      {home && (
+        <header className={styles.header}>
           <h1 className={utilStyles.heading2Xl}>{name}</h1>
-        ) : (
-          <h2 className={utilStyles.headingLg}>
-            <Link href="/">
-              <a>{name}</a>
-            </Link>
-          </h2>
-        )}
-      </header>
-
-      <main>{children}</main>
-
-      {!home && (
-        <div className={styles.backToHome}>
-          <Link href="/">
-            <a>← Back to home</a>
-          </Link>
-        </div>
+        </header>
       )}
+
+      <main>
+        {children}
+        {!home && (
+          <div className={styles.backToHome}>
+            <Link href="/">
+              <a>← Back to home</a>
+            </Link>
+          </div>
+        )}
+      </main>
     </div>
   )
 }

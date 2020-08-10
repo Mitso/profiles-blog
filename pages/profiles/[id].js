@@ -4,6 +4,7 @@ import Layout from '../components/layout'
 import utilStyles from '../../public/style/utils.module.scss'
 import { useRouter } from 'next/router'
 
+const name = "Random Users: Profile"
 function User(profileData) {
   const router = useRouter()
   const { id } = router.query
@@ -12,12 +13,16 @@ function User(profileData) {
   return (
     <Layout>
       <Head>
-        <title>First Post</title>
-        <link rel="icon" href="/img/favicon.ico" />
+        <title>{name}</title>
       </Head>
-      <section>
+      <section className={utilStyles.profiles}>
         {profileData.profileData.results.map((user,i) => (
-          <h4 key={i} className={utilStyles.listName}>{user.name.first} {user.name.last}</h4>
+          <div className={utilStyles.profilesUser} key={i}>
+            <div className={utilStyles.profilesImgWrapper}>
+              <img src={user.picture.large} className={utilStyles.borderCircle}/>
+            </div>
+            <h4 className={`${utilStyles.heading2Xl} ${utilStyles.profilesName}`}>{user.name.first} {user.name.last}</h4>
+          </div>
         ))}
       </section>
     </Layout>

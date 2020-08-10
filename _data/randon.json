@@ -4,6 +4,17 @@
 ))}
 
 
+{home ? (
+    <h1 className={utilStyles.heading2Xl}>{name}</h1>
+  ) : (
+    <h1 className={utilStyles.heading2Xl}>
+      <Link href="/">
+        <a className={utilStyles.headingAnchor}>{name}</a>
+      </Link>
+    </h1>
+  )}
+
+
 {
   "gender":"female",
   "name": {

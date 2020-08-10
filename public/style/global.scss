@@ -2,6 +2,12 @@
   Global Reset Styles
 */
 
+:root {
+  --soft-blue       :        #59a0ee;
+  --pure-blue       :        #0070f3;
+  --dark-blue       :        #004574;
+  --grayish-orange  :        #edecea;
+}
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap');
 
 html,
@@ -19,7 +25,7 @@ body {
 }
 
 a {
-  color: #0070f3;
+  color: var(--pure-blue);
   text-decoration: none;
 }
 

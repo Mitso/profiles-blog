@@ -13,7 +13,7 @@ function Home({ resultsData }) {
       <section className={utilStyles.content}>
         <div className={utilStyles.contentTopics}>
           <h2 className={utilStyles.headingMd}>Welcome to the profiles application</h2>
-          <h3>Please file a list of random 50 users - emphasis on random</h3>
+          <h3>Please find a list of random 50 users</h3>
         </div>
         <ul className={utilStyles.list}>
           {resultsData.results.map((user,i) => (
@@ -26,9 +26,8 @@ function Home({ resultsData }) {
                 <p className={utilStyles.listLabel}><span>City:</span> {user.location.city}, {user.location.state}</p>
                 <p className={utilStyles.listLabel}><span>Country:</span> {user.location.country}</p>
               </div>
-
               <Link href="/profiles/[id]" as={`/profiles/${user.login.uuid}`}>
-                <a className={utilStyles.backToHome}>Profile</a>
+                <a className={utilStyles.primaryButton}>View Profile</a>
               </Link>
             </li>
           ))}
