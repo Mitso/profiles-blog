@@ -1,5 +1,5 @@
 # Profiles Blog - Running it locally
-## Query the https://randomuser.me/api/?results=50&seed=somethingfun API
+## Query the [Random User API ](https://randomuser.me/api/?results=50&seed=somethingfun)
 
 
 run $ cd local-dir - to profiles-blog dir
@@ -15,4 +15,4 @@ run $ npm run dev - to run development or see package.json scripts
 ![Profile](https://github.com/Mitso/profiles-blog/blob/master/profile.png?raw=true)
 
 
-### 
+###
