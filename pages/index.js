@@ -29,7 +29,7 @@ function Home({ resultsData }) {
               <p>State: {user.location.state}</p>
               <p>Country: {user.location.country}</p>
             </div>
-            <Link href="/profiles/profile">
+            <Link href="/profiles/profile-[id]">
               <h4><a className={utilStyles.backToHome}>Profile</a></h4>
             </Link>
           </li>
