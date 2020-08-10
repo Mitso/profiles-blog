@@ -13,8 +13,6 @@ function Home({ resultsData }) {
       <section className={utilStyles.headingMd}>
         <h2>Welcome to the profiles application</h2>
         <h3>Please file a list of random 50 users - emphasis on random</h3>
-        <p>Aslo note this is not chached.</p>
-
         <ul className={utilStyles.list}>
           {resultsData.results.map((user,i) => (
             <li key={i} className={utilStyles.listItem}>
@@ -31,7 +29,7 @@ function Home({ resultsData }) {
               <br/>
                 <p>{user.id.value}</p>
               <br/>
-              <Link href="/profiles/[id]" as={`/profiles/${user.id.value}`}>
+              <Link href="/profiles/[id]" as={`/profiles/${i}`}>
                 <a className={utilStyles.backToHome}>Profile</a>
               </Link>
             </li>

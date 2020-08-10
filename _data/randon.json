@@ -55,4 +55,9 @@
   "nat":"AU"
 }
 
-080879-2665
+// const paths = userData.results.map((user) => ({
+//   params: {
+//     id: user.id.value
+//   },
+// }))
+//paths[0].params.id,'vs',paths[0].params.id.toString()
