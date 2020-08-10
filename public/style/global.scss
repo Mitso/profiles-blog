@@ -3,10 +3,10 @@
 */
 
 :root {
-  --soft-blue       :        #59a0ee;
-  --pure-blue       :        #0070f3;
-  --dark-blue       :        #004574;
-  --grayish-orange  :        #edecea;
+  --soft-blue: #59a0ee;
+  --pure-blue: #0070f3;
+  --dark-blue: #004574;
+  --grayish-orange: #edecea;
 }
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap');
 
@@ -16,7 +16,7 @@ body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
-  line-height: 1.3;
+  line-height: 1.5;
   font-size: 16px;
 }
 

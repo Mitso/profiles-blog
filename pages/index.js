@@ -3,8 +3,10 @@ import Link from 'next/link'
 import Layout, { siteTitle } from './components/layout'
 import useSWR from 'swr'
 import utilStyles from '../public/style/utils.module.scss'
+import { fetchRandomUsers } from '../data/api'
 
 function Home({ resultsData }) {
+  console.log(fetchRandomUsers())
   return (
     <Layout home>
       <Head>
@@ -38,8 +40,9 @@ function Home({ resultsData }) {
 }
 
 export async function getStaticProps() {
-  const res = await fetch('https://randomuser.me/api/?results=50&seed=somethingfun')
+  const res =  await fetch('https://randomuser.me/api/?results=50&seed=somethingfun')
   const resultsData = await res.json()
+  console.log(fetchRandomUsers());
   return {
     props: {
       resultsData,
