@@ -16,26 +16,27 @@ function Home({ resultsData }) {
         <p>Aslo note this is not chached.</p>
 
         <ul className={utilStyles.list}>
-        {resultsData.results.map((user,i) => (
-
-          <li key={i} className={utilStyles.listItem}>
-            <div className={utilStyles.listImgWrapper}>
-              <img src={user.picture.medium} className={`${utilStyles.borderCircle} ${utilStyles.listImg}`}/>
-            </div>
-            <h4 className={utilStyles.listName}>{user.name.first} {user.name.last}</h4>
-            <div className={utilStyles.details}>
-              <h5>Location</h5>
-              <p>City: {user.location.city}</p>
-              <p>State: {user.location.state}</p>
-              <p>Country: {user.location.country}</p>
-            </div>
-            <Link href="/profiles/profile-[id]">
-              <h4><a className={utilStyles.backToHome}>Profile</a></h4>
-            </Link>
-          </li>
-        ))}
-
-      </ul>
+          {resultsData.results.map((user,i) => (
+            <li key={i} className={utilStyles.listItem}>
+              <div className={utilStyles.listImgWrapper}>
+                <img src={user.picture.medium} className={`${utilStyles.borderCircle} ${utilStyles.listImg}`}/>
+              </div>
+              <h4 className={utilStyles.listName}>{user.name.first} {user.name.last}</h4>
+              <div className={utilStyles.details}>
+                <h5>Location</h5>
+                <p>City: {user.location.city}</p>
+                <p>State: {user.location.state}</p>
+                <p>Country: {user.location.country}</p>
+              </div>
+              <br/>
+                <p>{user.id.value}</p>
+              <br/>
+              <Link href="/profiles/[id]" as={`/profiles/${user.id.value}`}>
+                <a className={utilStyles.backToHome}>Profile</a>
+              </Link>
+            </li>
+          ))}
+        </ul>
       </section>
     </Layout>
   )
