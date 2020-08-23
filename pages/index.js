@@ -1,10 +1,14 @@
+import { useContext } from 'react';
+import DataContext from './components/DataContext';
+
 import Head from 'next/head'
 import Link from 'next/link'
 import Layout, { siteTitle } from './components/layout'
-import useSWR from 'swr'
 import utilStyles from '../public/style/utils.module.scss'
 
-function Home({ resultsData }) {
+
+function Home() {
+  const { data } = useContext(DataContext);
   return (
     <Layout home>
       <Head>
@@ -16,7 +20,7 @@ function Home({ resultsData }) {
           <h3>Please find a list of random 50 users</h3>
         </div>
         <ul className={utilStyles.list}>
-          {resultsData.results.map((user,i) => (
+          {data.results.map((user,i) => (
             <li key={i} className={utilStyles.listItem}>
               <div className={utilStyles.listImgWrapper}>
                 <img src={user.picture.medium} className={`${utilStyles.borderCircle} ${utilStyles.listImg}`}/>
@@ -36,18 +40,6 @@ function Home({ resultsData }) {
     </Layout>
   )
 }
-/*
-  // NOTE:
- Fetch external data to display to Home component
-*/
-export async function getStaticProps() {
-  const res =  await fetch('https://randomuser.me/api/?results=50&seed=somethingfun')
-  const resultsData = await res.json()
-  return {
-    props: {
-      resultsData,
-    },
-  }
-}
 
-export default Home
+
+export default Home;

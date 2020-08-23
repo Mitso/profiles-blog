@@ -1,13 +1,17 @@
+import { useContext } from 'react';
+import DataContext from '../components/DataContext';
+
 import Head from 'next/head'
 import Link from 'next/link'
 import Layout from '../components/layout'
 import utilStyles from '../../public/style/utils.module.scss'
-import { useRouter } from 'next/router'
 
-const name = "Profiles: User"
+
+const name = "Profiles: User";
 function User({profileFilter}) {
-  const router = useRouter()
-  const { id } = router.query
+
+  const {data} = useContext(DataContext);
+  console.log('Data needed;',data);
 
   return (
     <Layout>
@@ -39,38 +43,29 @@ function User({profileFilter}) {
   )
 }
 
-/*
-  // NOTE:
- Fetch external data to display a user with unique uuid
-*/
+
 export async function getStaticPaths() {
-  const res = await fetch('https://randomuser.me/api/?results=50&seed=somethingfun')
-  const userData = await res.json()
+  const userData = useContext(DataContext);
   const paths = userData.results.map(function(user,i) {
     return {
       params: { id: user.login.uuid },
     }
-  })
+  });
   return {
     paths,
     fallback: false
   }
 }
 
-/*
-  // NOTE:
- Use the getStaticPaths id to fetch external data to get the to user and display to User component
-*/
 export async function getStaticProps({ params }) {
-  const res = await fetch("https://randomuser.me/api/?results=50&seed=somethingfun")
-  const profileData = await res.json()
-  let profileFilter = profileData.results.filter((obj) => {
+  const profileData = useContext(DataContext);
+  const profileFilter = profileData.results.filter((obj) => {
     return obj.login.uuid === params.id
-  })
+  });
   return {
     props: {
       profileFilter
-    },
+    }
   }
 }
 

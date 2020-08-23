@@ -6,7 +6,7 @@ import utilStyles from '../../public/style/utils.module.scss'
 const name = "Profiles"
 export const siteTitle = 'Next.js Sample Site'
 
-export default function Layout({children, home}) {
+function Layout({children, home}) {
   return  (
     <div className={styles.container}>
       <Head>
@@ -25,14 +25,13 @@ export default function Layout({children, home}) {
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-
       {home && (
         <header className={styles.header}>
           <h1 className={utilStyles.heading2Xl}>{name}</h1>
         </header>
       )}
-
       <main role="main">
+
         {children}
         {!home && (
           <div className={styles.backToHome}>
@@ -45,3 +44,5 @@ export default function Layout({children, home}) {
     </div>
   )
 }
+
+export default Layout;
